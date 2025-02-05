@@ -1,0 +1,419 @@
+fileFormatVersion: 2
+guid: e97971214cf4305449a33414f28eac1a
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Slime3_Death_front_Frame_0
+    originalName: 
+    pivot: {x: 0.47058824, y: -1.2222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 37
+      width: 17
+      height: 18
+    spriteID: c59fbeceeb90f394883f79eccd8b60d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 102, y: 37}
+  - name: Slime3_Death_front_Frame_1
+    originalName: 
+    pivot: {x: 0.4375, y: -1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 69
+      width: 16
+      height: 22
+    spriteID: ab1dbbfbd2f39aa4698e9de19b453093
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 102, y: 69}
+  - name: Slime3_Death_front_Frame_2
+    originalName: 
+    pivot: {x: 0.4666667, y: -0.8148148}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 178
+      width: 15
+      height: 27
+    spriteID: b729d857bc957dc4e9dbf2393f3f5faf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 52, y: 178}
+  - name: Slime3_Death_front_Frame_3
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.73333335}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 140
+      width: 21
+      height: 30
+    spriteID: 6615f1f6012681b41af29434d23c9ef0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 52, y: 140}
+  - name: Slime3_Death_front_Frame_4
+    originalName: 
+    pivot: {x: 0.4827586, y: -0.6875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 100
+      width: 29
+      height: 32
+    spriteID: 180ce0459da9e3a48b0dff9a1c7088b7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 52, y: 100}
+  - name: Slime3_Death_front_Frame_5
+    originalName: 
+    pivot: {x: 0.4871795, y: -0.62857145}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 47
+      width: 39
+      height: 35
+    spriteID: ad05627dee080dc4389b58308740c7e3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 47}
+  - name: Slime3_Death_front_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: -0.6571429}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 40
+      height: 35
+    spriteID: 5d271f42ca3decc469ad383aeb076de6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Slime3_Death_front_Frame_7
+    originalName: 
+    pivot: {x: 0.47619048, y: -1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 69
+      width: 42
+      height: 23
+    spriteID: 390c4961240a1ab4481e890bb3d6bdc6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 52, y: 69}
+  - name: Slime3_Death_front_Frame_8
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.9583334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 37
+      width: 42
+      height: 24
+    spriteID: 333ffcbbeb8476341bdda67de49422ad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 52, y: 37}
+  - name: Slime3_Death_front_Frame_9
+    originalName: 
+    pivot: {x: 0.4634146, y: -0.91999996}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 4
+      width: 41
+      height: 25
+    spriteID: 09273342d8dafd043a070fbfddc537d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 52, y: 4}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -665814318
+    name: Slime3_Death_front
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Slime3_Death_front_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 24
+        y: 22
+        width: 17
+        height: 18
+      spriteId: c59fbeceeb90f394883f79eccd8b60d7
+    - name: Slime3_Death_front_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 25
+        y: 22
+        width: 16
+        height: 22
+      spriteId: ab1dbbfbd2f39aa4698e9de19b453093
+    - name: Slime3_Death_front_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 25
+        y: 22
+        width: 15
+        height: 27
+      spriteId: b729d857bc957dc4e9dbf2393f3f5faf
+    - name: Slime3_Death_front_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 22
+        y: 22
+        width: 21
+        height: 30
+      spriteId: 6615f1f6012681b41af29434d23c9ef0
+    - name: Slime3_Death_front_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 18
+        y: 22
+        width: 29
+        height: 32
+      spriteId: 180ce0459da9e3a48b0dff9a1c7088b7
+    - name: Slime3_Death_front_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 13
+        y: 22
+        width: 39
+        height: 35
+      spriteId: ad05627dee080dc4389b58308740c7e3
+    - name: Slime3_Death_front_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 12
+        y: 23
+        width: 40
+        height: 35
+      spriteId: 5d271f42ca3decc469ad383aeb076de6
+    - name: Slime3_Death_front_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 12
+        y: 23
+        width: 42
+        height: 23
+      spriteId: 390c4961240a1ab4481e890bb3d6bdc6
+    - name: Slime3_Death_front_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 12
+        y: 23
+        width: 42
+        height: 24
+      spriteId: 333ffcbbeb8476341bdda67de49422ad
+    - name: Slime3_Death_front_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 13
+        y: 23
+        width: 41
+        height: 25
+      spriteId: 09273342d8dafd043a070fbfddc537d7
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 64, y: 64}
