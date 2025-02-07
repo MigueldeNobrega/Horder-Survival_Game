@@ -50,8 +50,13 @@ public class PlayerMovement : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
         moveInput = new Vector2(moveX, moveY).normalized;
 
-        playerAnimator.SetFloat("Horizontal", moveX);
-        playerAnimator.SetFloat("Vertical", moveY);
+        // Si NO está atacando, el personaje usa la dirección de movimiento para la animación
+        if (!isShooting)
+        {
+            playerAnimator.SetFloat("Horizontal", moveX);
+            playerAnimator.SetFloat("Vertical", moveY);
+        }
+
         playerAnimator.SetFloat("Speed", moveInput.sqrMagnitude);
 
         // Animación de disparo
@@ -60,6 +65,14 @@ public class PlayerMovement : MonoBehaviour
             isShooting = true;
             playerAnimator.SetBool("isShooting", true);
             attackTimer = 0f;
+
+            // Mirar al ratón SOLO al atacar
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = 0f; // Asegurar que esté en 2D
+            Vector2 lookDirection = (mousePosition - transform.position).normalized;
+
+            playerAnimator.SetFloat("Horizontal", lookDirection.x);
+            playerAnimator.SetFloat("Vertical", lookDirection.y);
         }
 
         if (isShooting)
