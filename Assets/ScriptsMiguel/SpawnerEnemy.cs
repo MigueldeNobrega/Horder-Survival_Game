@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class SpanwEnemy : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private float minimumSpawnTime = 2f;
+    [SerializeField] private float maximumSpawnTime = 5f;
 
-    [SerializeField] private float _minimumSpawnTime;
-
-    [SerializeField] private float _maximumSpawnTime;
-
-    private float _timeUntilSpawn;
+    private float timeUntilSpawn;
 
     void Awake()
     {
@@ -19,17 +16,25 @@ public class SpanwEnemy : MonoBehaviour
 
     void Update()
     {
-        _timeUntilSpawn -= Time.deltaTime;
+        timeUntilSpawn -= Time.deltaTime;
 
-        if (_timeUntilSpawn <= 0)
+        if (timeUntilSpawn <= 0)
         {
-            Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
+            if (EnemySpawnPool.Instance != null)
+            {
+                EnemySpawnPool.Instance.GetEnemy(transform.position);
+            }
+            else
+            {
+                Debug.LogError("EnemyPool.Instance es NULL. Asegúrate de que EnemyPool está en la escena.");
+            }
+
             SetTimeUntilSpawn();
         }
     }
 
     private void SetTimeUntilSpawn()
     {
-        _timeUntilSpawn = Random.Range(_minimumSpawnTime, _maximumSpawnTime);
+        timeUntilSpawn = Random.Range(minimumSpawnTime, maximumSpawnTime);
     }
 }
