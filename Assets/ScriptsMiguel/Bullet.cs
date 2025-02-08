@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private new Rigidbody2D rigidbody;
+    private Rigidbody2D rb; // Cambié el nombre de la variable
 
     public float speed = 3;
 
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Destroy(gameObject);
+        rb = GetComponent<Rigidbody2D>(); // Usamos el nuevo nombre
     }
 
     void FixedUpdate()
     {
-        rigidbody.MovePosition(transform.position + transform.right * speed * Time.fixedDeltaTime);
+        rb.MovePosition(transform.position + transform.right * speed * Time.fixedDeltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // En lugar de destruir, devolvemos la bala al pool
+        BulletPool.Instance.ReturnBullet(gameObject);
     }
 }
