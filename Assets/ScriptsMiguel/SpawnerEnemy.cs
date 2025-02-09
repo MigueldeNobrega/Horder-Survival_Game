@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpanwEnemy : MonoBehaviour
 {
+    [SerializeField] private string enemyTag; // Asigna en el Inspector el tag del enemigo a spawnnear
     [SerializeField] private float minimumSpawnTime = 2f;
     [SerializeField] private float maximumSpawnTime = 5f;
 
@@ -20,13 +21,13 @@ public class SpanwEnemy : MonoBehaviour
 
         if (timeUntilSpawn <= 0)
         {
-            if (EnemySpawnPool.Instance != null)
+            if (EnemyPoolManager.Instance != null)
             {
-                EnemySpawnPool.Instance.GetEnemy(transform.position);
+                EnemyPoolManager.Instance.GetEnemy(enemyTag, transform.position);
             }
             else
             {
-                Debug.LogError("EnemyPool.Instance es NULL. Asegúrate de que EnemyPool está en la escena.");
+                Debug.LogError("EnemyPoolManager.Instance es NULL. Asegúrate de que está en la escena.");
             }
 
             SetTimeUntilSpawn();

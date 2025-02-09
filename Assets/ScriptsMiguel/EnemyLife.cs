@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EnemyLife : MonoBehaviour
 {
+    [SerializeField] private string enemyTag; // Asigna el tag del enemigo en el Inspector
+
     public void Die()
     {
-        // En vez de destruir, regresamos el enemigo al pool
-        EnemySpawnPool.Instance.ReturnEnemy(gameObject);
+        
+        EnemyPoolManager.Instance.ReturnEnemy(enemyTag, gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5449801724904888968}
   m_Layer: 0
   m_Name: OrcBlue
-  m_TagString: Untagged
+  m_TagString: OrcBlue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc7202e05d60d944bc6232d22420ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyTag: OrcBlue
 --- !u!61 &2333027311663115067
 BoxCollider2D:
   m_ObjectHideFlags: 0
