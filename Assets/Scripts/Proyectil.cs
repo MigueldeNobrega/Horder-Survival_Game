@@ -12,11 +12,26 @@ public class Proyectil : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        pool = FindObjectOfType<ProyectilPooling>();  // Encuentra la pool en la escena
+        GameObject spawnObject = GameObject.Find("ProyectilSpawn"); // Busca el objeto por su nombre
+        if (spawnObject != null)
+        {
+            pool = spawnObject.GetComponent<ProyectilPooling>(); // Obtiene el script de la pool
+        }
+        else
+        {
+            Debug.LogError("? No se encontró el GameObject 'ProyectilSpawn' con el script ProyectilPooling.");
+        }
     }
 
     public void Launch(Vector2 direction)
     {
+        Collider2D playerCollider = GameObject.FindWithTag("Player")?.GetComponent<Collider2D>();
+        Collider2D myCollider = GetComponent<Collider2D>();
+
+        if (playerCollider != null && myCollider != null)
+        {
+            Physics2D.IgnoreCollision(myCollider, playerCollider, true);
+        }
         rb.velocity = direction * speed;
         Invoke(nameof(Deactivate), lifeTime);
     }

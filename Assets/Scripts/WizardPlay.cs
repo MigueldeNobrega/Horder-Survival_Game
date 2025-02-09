@@ -31,16 +31,32 @@ public class PlayerMovement : MonoBehaviour
     private float tiempoDetenerRegeneracion = 30f; // Tiempo en el que la regeneración estará detenida después de recibir daño
     private float tiempoDetenerRegeneracionActual = 0f; // Temporizador que se utiliza para contar los 30 segundos
 
+    [Header("Disparo")]
+    [SerializeField] private Transform puntoDisparo; // Empty donde aparece el proyectil
+    private ProyectilPooling proyectilPool;
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+
+        // Buscar la pool de proyectiles en "ProyectilSpawn"
+        GameObject spawnObject = GameObject.Find("ProyectilSpawn");
+        if (spawnObject != null)
+        {
+            proyectilPool = spawnObject.GetComponent<ProyectilPooling>();
+        }
+        else
+        {
+            Debug.LogError("⚠ No se encontró el GameObject 'ProyectilSpawn' con el script ProyectilPooling.");
+        }
 
         vidaActual = vidaMaxima;
         escudoActual = escudoMaximo;
 
         barraDeVida.InicializarBarraDeVida(vidaMaxima);
         barraDeEscudo.InicializarBarraDeEscudo(escudoMaximo); // Usamos el mismo script para el escudo
+
     }
 
     void Update()
@@ -69,10 +85,15 @@ public class PlayerMovement : MonoBehaviour
             // Mirar al ratón SOLO al atacar
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0f; // Asegurar que esté en 2D
-            Vector2 lookDirection = (mousePosition - transform.position).normalized;
+            Vector2 direction = (mousePosition - transform.position).normalized;
 
-            playerAnimator.SetFloat("Horizontal", lookDirection.x);
-            playerAnimator.SetFloat("Vertical", lookDirection.y);
+   
+
+            playerAnimator.SetFloat("Horizontal", direction.x);
+            playerAnimator.SetFloat("Vertical", direction.y);
+
+            // 🔥 Disparar proyectil
+            Disparar(direction);
         }
 
         if (isShooting)
@@ -112,6 +133,19 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         playerRb.MovePosition(playerRb.position + moveInput * speed * Time.fixedDeltaTime);
+    }
+
+    // 🎯 MÉTODO PARA DISPARAR
+    private void Disparar(Vector2 direction)
+    {
+        GameObject proyectil = proyectilPool.GetProjectile();
+        if (proyectil != null)
+        {
+            proyectil.transform.position = puntoDisparo.position;
+            proyectil.transform.rotation = Quaternion.identity;
+            proyectil.SetActive(true);
+            proyectil.GetComponent<Proyectil>().Launch(direction);
+        }
     }
 
     // Método para recibir daño
