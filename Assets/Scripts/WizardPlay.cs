@@ -21,8 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private float vidaActual;
     private float escudoActual;
 
-    private float tiempoUltimoAtaque = 0f;  // Temporizador para el último daño recibido
-    private float tiempoDeRegeneracion = 3f;  // Tiempo que debe pasar sin recibir daño para iniciar regeneración
+    private float tiempoDeRegeneracion = 30f;  // Tiempo que debe pasar sin recibir daño para iniciar regeneración
     private float velocidadRegeneracionEscudo = 2f; // Velocidad de regeneración del escudo por segundo
     private bool regenerandoEscudo = false;  // Indica si el escudo está regenerándose
     private float tiempoSinDaño = 0f; // Acumula el tiempo sin recibir daño
@@ -30,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     private bool detenerRegeneracionEscudo = false; // Indica si la regeneración está detenida temporalmente
     private float tiempoDetenerRegeneracion = 30f; // Tiempo en el que la regeneración estará detenida después de recibir daño
     private float tiempoDetenerRegeneracionActual = 0f; // Temporizador que se utiliza para contar los 30 segundos
+
+    private Coroutine shieldRegenCoroutine; // Referencia a la coroutine de regeneración del escudo
 
     [Header("Disparo")]
     [SerializeField] private Transform puntoDisparo; // Empty donde aparece el proyectil
@@ -109,11 +110,11 @@ public class PlayerMovement : MonoBehaviour
         // Regeneración de escudo automática (solo después de que haya pasado un tiempo sin recibir daño)
         if (!detenerRegeneracionEscudo && escudoActual < escudoMaximo && tiempoSinDaño >= tiempoDeRegeneracion && !regenerandoEscudo)
         {
-            StartCoroutine(RegenerarEscudo());
+            shieldRegenCoroutine = StartCoroutine(RegenerarEscudo());
         }
 
         // Acumula el tiempo sin daño
-        if (tiempoSinDaño < tiempoDeRegeneracion)
+        if (!detenerRegeneracionEscudo)
         {
             tiempoSinDaño += Time.deltaTime;
         }
@@ -126,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 detenerRegeneracionEscudo = false; // Permitir que la regeneración se reanude
                 tiempoDetenerRegeneracionActual = 0f; // Resetear el temporizador
+                tiempoSinDaño = 0f; // Reiniciar el tiempo sin daño
             }
         }
     }
@@ -168,7 +170,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Detener regeneración del escudo al recibir daño
-        StopCoroutine(RegenerarEscudo());
+        if (shieldRegenCoroutine != null)
+        {
+            StopCoroutine(shieldRegenCoroutine);
+            shieldRegenCoroutine = null;
+        }
         regenerandoEscudo = false;
 
         // Reiniciar el temporizador de regeneración
@@ -179,9 +185,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Reiniciar el temporizador de 30 segundos
         tiempoDetenerRegeneracionActual = 0f;
-
-        // Detener regeneración
-        tiempoUltimoAtaque = Time.time;
     }
 
     private void RecibirDañoVida(float cantidad)
@@ -220,8 +223,16 @@ public class PlayerMovement : MonoBehaviour
 
             barraDeEscudo.CambiarEscudoActual(escudoActual);
             yield return null;  // Pausa la ejecución de la coroutine hasta el siguiente frame
+
+            // Si se ha detenido la regeneración (por recibir daño), salir del bucle
+            if (detenerRegeneracionEscudo)
+            {
+                regenerandoEscudo = false;
+                yield break;
+            }
         }
 
         regenerandoEscudo = false;
+        shieldRegenCoroutine = null;
     }
 }
