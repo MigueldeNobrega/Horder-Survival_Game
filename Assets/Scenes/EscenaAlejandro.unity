@@ -1327,7 +1327,7 @@ MonoBehaviour:
   speed: 3
   barraDeVida: {fileID: 1535959079}
   barraDeEscudo: {fileID: 855876990}
-  puntoDisparo: {fileID: 0}
+  puntoDisparo: {fileID: 986485045}
 --- !u!61 &797056498
 BoxCollider2D:
   m_ObjectHideFlags: 0
