@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
             mousePosition.z = 0f; // Asegurar que esté en 2D
             Vector2 direction = (mousePosition - transform.position).normalized;
 
-   
+
 
             playerAnimator.SetFloat("Horizontal", direction.x);
             playerAnimator.SetFloat("Vertical", direction.y);
