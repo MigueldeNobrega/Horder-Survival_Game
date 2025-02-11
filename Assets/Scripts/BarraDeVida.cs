@@ -14,7 +14,7 @@ public class BarraDeVida : MonoBehaviour
 
             if (barra == null)
             {
-               
+
             }
         }
     }

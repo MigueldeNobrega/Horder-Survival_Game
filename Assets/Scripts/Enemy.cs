@@ -86,16 +86,19 @@ public class Zombie : MonoBehaviour
     private void OnAttack()
     {
         // Usamos el Collider para verificar si el jugador está dentro del área de ataque del zombie
-        Collider2D collider = Physics2D.OverlapCircle(transform.position, attackCollider.radius);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackCollider.radius);
 
-        if (collider != null && collider.CompareTag("Player"))
+        foreach (Collider2D collider in colliders)
         {
-            // Si el zombie entra en contacto con el jugador, aplicar daño
-            PlayerMovement player = collider.GetComponent<PlayerMovement>();
-            if (player != null)
+            if (collider.CompareTag("Player"))
             {
-                player.RecibirDaño(damageAmount);  // Aplica el daño al jugador
-                Debug.Log("Daño recibido por el jugador.");
+                // Si el zombie entra en contacto con el jugador, aplicar daño
+                PlayerMovement player = collider.GetComponent<PlayerMovement>();
+                if (player != null)
+                {
+                    player.RecibirDaño(damageAmount);  // Aplica el daño al jugador
+                    Debug.Log("Daño recibido por el jugador.");
+                }
             }
         }
     }

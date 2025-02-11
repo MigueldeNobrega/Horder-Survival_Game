@@ -21,8 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private float vidaActual;
     private float escudoActual;
 
-    private float tiempoUltimoAtaque = 0f;  // Temporizador para el último daño recibido
-    private float tiempoDeRegeneracion = 3f;  // Tiempo que debe pasar sin recibir daño para iniciar regeneración
+    private float tiempoDeRegeneracion = 30f;  // Tiempo que debe pasar sin recibir daño para iniciar regeneración
     private float velocidadRegeneracionEscudo = 2f; // Velocidad de regeneración del escudo por segundo
     private bool regenerandoEscudo = false;  // Indica si el escudo está regenerándose
     private float tiempoSinDaño = 0f; // Acumula el tiempo sin recibir daño
@@ -31,16 +30,34 @@ public class PlayerMovement : MonoBehaviour
     private float tiempoDetenerRegeneracion = 30f; // Tiempo en el que la regeneración estará detenida después de recibir daño
     private float tiempoDetenerRegeneracionActual = 0f; // Temporizador que se utiliza para contar los 30 segundos
 
+    private Coroutine shieldRegenCoroutine; // Referencia a la coroutine de regeneración del escudo
+
+    [Header("Disparo")]
+    [SerializeField] private Transform puntoDisparo; // Empty donde aparece el proyectil
+    private ProyectilPooling proyectilPool;
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+
+        // Buscar la pool de proyectiles en "ProyectilSpawn"
+        GameObject spawnObject = GameObject.Find("ProyectilSpawn");
+        if (spawnObject != null)
+        {
+            proyectilPool = spawnObject.GetComponent<ProyectilPooling>();
+        }
+        else
+        {
+            Debug.LogError("⚠ No se encontró el GameObject 'ProyectilSpawn' con el script ProyectilPooling.");
+        }
 
         vidaActual = vidaMaxima;
         escudoActual = escudoMaximo;
 
         barraDeVida.InicializarBarraDeVida(vidaMaxima);
         barraDeEscudo.InicializarBarraDeEscudo(escudoMaximo); // Usamos el mismo script para el escudo
+
     }
 
     void Update()
@@ -50,8 +67,13 @@ public class PlayerMovement : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
         moveInput = new Vector2(moveX, moveY).normalized;
 
-        playerAnimator.SetFloat("Horizontal", moveX);
-        playerAnimator.SetFloat("Vertical", moveY);
+        // Si NO está atacando, el personaje usa la dirección de movimiento para la animación
+        if (!isShooting)
+        {
+            playerAnimator.SetFloat("Horizontal", moveX);
+            playerAnimator.SetFloat("Vertical", moveY);
+        }
+
         playerAnimator.SetFloat("Speed", moveInput.sqrMagnitude);
 
         // Animación de disparo
@@ -60,6 +82,19 @@ public class PlayerMovement : MonoBehaviour
             isShooting = true;
             playerAnimator.SetBool("isShooting", true);
             attackTimer = 0f;
+
+            // Mirar al ratón SOLO al atacar
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = 0f; // Asegurar que esté en 2D
+            Vector2 direction = (mousePosition - transform.position).normalized;
+
+   
+
+            playerAnimator.SetFloat("Horizontal", direction.x);
+            playerAnimator.SetFloat("Vertical", direction.y);
+
+            // 🔥 Disparar proyectil
+            Disparar(direction);
         }
 
         if (isShooting)
@@ -75,11 +110,11 @@ public class PlayerMovement : MonoBehaviour
         // Regeneración de escudo automática (solo después de que haya pasado un tiempo sin recibir daño)
         if (!detenerRegeneracionEscudo && escudoActual < escudoMaximo && tiempoSinDaño >= tiempoDeRegeneracion && !regenerandoEscudo)
         {
-            StartCoroutine(RegenerarEscudo());
+            shieldRegenCoroutine = StartCoroutine(RegenerarEscudo());
         }
 
         // Acumula el tiempo sin daño
-        if (tiempoSinDaño < tiempoDeRegeneracion)
+        if (!detenerRegeneracionEscudo)
         {
             tiempoSinDaño += Time.deltaTime;
         }
@@ -92,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 detenerRegeneracionEscudo = false; // Permitir que la regeneración se reanude
                 tiempoDetenerRegeneracionActual = 0f; // Resetear el temporizador
+                tiempoSinDaño = 0f; // Reiniciar el tiempo sin daño
             }
         }
     }
@@ -99,6 +135,19 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         playerRb.MovePosition(playerRb.position + moveInput * speed * Time.fixedDeltaTime);
+    }
+
+    // 🎯 MÉTODO PARA DISPARAR
+    private void Disparar(Vector2 direction)
+    {
+        GameObject proyectil = proyectilPool.GetProjectile();
+        if (proyectil != null)
+        {
+            proyectil.transform.position = puntoDisparo.position;
+            proyectil.transform.rotation = Quaternion.identity;
+            proyectil.SetActive(true);
+            proyectil.GetComponent<Proyectil>().Launch(direction);
+        }
     }
 
     // Método para recibir daño
@@ -121,7 +170,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Detener regeneración del escudo al recibir daño
-        StopCoroutine(RegenerarEscudo());
+        if (shieldRegenCoroutine != null)
+        {
+            StopCoroutine(shieldRegenCoroutine);
+            shieldRegenCoroutine = null;
+        }
         regenerandoEscudo = false;
 
         // Reiniciar el temporizador de regeneración
@@ -132,9 +185,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Reiniciar el temporizador de 30 segundos
         tiempoDetenerRegeneracionActual = 0f;
-
-        // Detener regeneración
-        tiempoUltimoAtaque = Time.time;
     }
 
     private void RecibirDañoVida(float cantidad)
@@ -173,8 +223,16 @@ public class PlayerMovement : MonoBehaviour
 
             barraDeEscudo.CambiarEscudoActual(escudoActual);
             yield return null;  // Pausa la ejecución de la coroutine hasta el siguiente frame
+
+            // Si se ha detenido la regeneración (por recibir daño), salir del bucle
+            if (detenerRegeneracionEscudo)
+            {
+                regenerandoEscudo = false;
+                yield break;
+            }
         }
 
         regenerandoEscudo = false;
+        shieldRegenCoroutine = null;
     }
 }
