@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
+    [SerializeField] private GameObject panelDeSangre;
     public Transform playerToFollow;    // Referencia al jugador que seguirá el zombie
     public float stopDistance = 0.1f;   // Distancia mínima a la que el zombie se detiene
     public float speed = 10f;           // Velocidad de movimiento del zombie
@@ -98,6 +99,8 @@ public class Zombie : MonoBehaviour
                 {
                     player.RecibirDaño(damageAmount);  // Aplica el daño al jugador
                     Debug.Log("Daño recibido por el jugador.");
+                       panelDeSangre.SetActive(true);
+                   
                 }
             }
         }

@@ -15,19 +15,21 @@ public class PlayerMovement : MonoBehaviour
     [Header("Vida y Escudo")]
     [SerializeField] private BarraDeVida barraDeVida;
     [SerializeField] private BarraDeEscudo barraDeEscudo;
+    [SerializeField] private GameObject panelDeSangre;
+
 
     private float vidaMaxima = 100f;
     private float escudoMaximo = 50f;
     private float vidaActual;
     private float escudoActual;
 
-    private float tiempoDeRegeneracion = 30f;  // Tiempo que debe pasar sin recibir daño para iniciar regeneración
+    private float tiempoDeRegeneracion = 5f;  // Tiempo que debe pasar sin recibir daño para iniciar regeneración
     private float velocidadRegeneracionEscudo = 2f; // Velocidad de regeneración del escudo por segundo
     private bool regenerandoEscudo = false;  // Indica si el escudo está regenerándose
     private float tiempoSinDaño = 0f; // Acumula el tiempo sin recibir daño
 
     private bool detenerRegeneracionEscudo = false; // Indica si la regeneración está detenida temporalmente
-    private float tiempoDetenerRegeneracion = 30f; // Tiempo en el que la regeneración estará detenida después de recibir daño
+    private float tiempoDetenerRegeneracion = 5f; // Tiempo en el que la regeneración estará detenida después de recibir daño
     private float tiempoDetenerRegeneracionActual = 0f; // Temporizador que se utiliza para contar los 30 segundos
 
     private Coroutine shieldRegenCoroutine; // Referencia a la coroutine de regeneración del escudo
@@ -111,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
         if (!detenerRegeneracionEscudo && escudoActual < escudoMaximo && tiempoSinDaño >= tiempoDeRegeneracion && !regenerandoEscudo)
         {
             shieldRegenCoroutine = StartCoroutine(RegenerarEscudo());
+            panelDeSangre.SetActive(false);
         }
 
         // Acumula el tiempo sin daño
@@ -208,6 +211,7 @@ public class PlayerMovement : MonoBehaviour
         escudoActual += cantidad;
         if (escudoActual > escudoMaximo) escudoActual = escudoMaximo;
         barraDeEscudo.CambiarEscudoActual(escudoActual);
+        
     }
 
     // Coroutine para la regeneración del escudo
