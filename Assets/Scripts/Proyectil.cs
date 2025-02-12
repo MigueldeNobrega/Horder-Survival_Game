@@ -45,7 +45,12 @@ public class Proyectil : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Aquí puedes poner lo que pasa cuando golpea algo
+        if (other.isTrigger) return; // ?? Ignorar triggers (como el del ataque del zombie)
+
+        // ?? Si en el futuro el enemigo tiene un método de daño, lo puedes llamar aquí
+        Debug.Log("?? Impacto en el enemigo");
+
+        // Desactivar el proyectil al colisionar con algo válido
         Deactivate();
     }
 }
