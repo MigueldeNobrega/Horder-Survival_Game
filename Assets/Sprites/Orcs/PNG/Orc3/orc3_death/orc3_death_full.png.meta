@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,7 +121,679 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: orc3_death_full_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 210
+        width: 37
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02a27ca38bac6724a992dff9d18b69a4
+      internalID: -1834722777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 210
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29d893202a124cb4f8a28a1129b3b362
+      internalID: 1648850793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 210
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2650542c15b9b2d4b9aa9fa947828dcd
+      internalID: 704315728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_3
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 210
+        width: 39
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b6881aa050dd244a83dc0347cd35864
+      internalID: 903249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_4
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 207
+        width: 40
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe28168e59599c4685b4934fa898a62
+      internalID: -903862582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_5
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 208
+        width: 40
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a841cef360ecc9f4db2c4dc5f2289240
+      internalID: -1977254310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_6
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 208
+        width: 40
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c8aa6f809ca3444a838a4c719e96437
+      internalID: -1366560189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_7
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 208
+        width: 40
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89b4aee013860144f97039c32a8ac3bd
+      internalID: -45865152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_8
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 146
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4fca9ce9ae1990429d80bdc39b61642
+      internalID: 1547627850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_9
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 146
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2365977b27ab5e44e813fb695b13bcd1
+      internalID: 1020276651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_10
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 146
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27856dfdb617cad47b36a81b6475fe54
+      internalID: 1237710356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_11
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 146
+        width: 39
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b05e63699916414f977e5385fd4411f
+      internalID: -982327614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_12
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 146
+        width: 40
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c336dbafd2869f44ab9e32b2c80fba2
+      internalID: -2067473247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_13
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 146
+        width: 40
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c539f6f0b2351343b15cfefb66f8503
+      internalID: 944116854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_14
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 146
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b053e6375c099914c86944740805415b
+      internalID: -1253711626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_15
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 146
+        width: 40
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c85a1cf1e541074095d0fd6c11c45b0
+      internalID: 756076037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_16
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 82
+        width: 28
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f309ed53dc604c04183afd24fdcb564a
+      internalID: 1648399332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_17
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 82
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b3ff27df3b16045b333895c99c64dd
+      internalID: 1185218749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_18
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 82
+        width: 30
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61163ef67d4097649b61354c2d2c626a
+      internalID: 2077450318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_19
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 82
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e687965a5011194495635b8c61e912d
+      internalID: 727904348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_20
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 82
+        width: 35
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a7370743c0b72f4d8fb4c2c0de9708c
+      internalID: 1232609490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_21
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 82
+        width: 35
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf444f1863ca23459e4da9e02f3d3bc
+      internalID: -245296057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_22
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 82
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa3ba4ba7c6b6a42b2a059d10d11866
+      internalID: 486277182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_23
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 82
+        width: 34
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e38003c259804a14c99d7a0359c3b356
+      internalID: 141070746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_24
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 18
+        width: 26
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7275160e03ebe4b4b92f04abf4b4e734
+      internalID: -201925493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_25
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 18
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe2d1056d012c914c8eda2d84bebae4c
+      internalID: -982967002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_26
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 18
+        width: 30
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b403ef99ab2902418a978ff5a80cd79
+      internalID: 860559516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_27
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 18
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ef44792432797f48bf50687581bf337
+      internalID: -1455681219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_28
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 18
+        width: 35
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6b429671aed3de428e8c294ea719bc2
+      internalID: 466701356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_29
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 18
+        width: 35
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0296718f14fd7941a610de6537c0182
+      internalID: -2145624312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_30
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 18
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a24324a18ddc194dbaa61f3d6e9d9ea
+      internalID: 169092014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_death_full_31
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 18
+        width: 34
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c7e389232eb65b4a846db1e9f6a8b79
+      internalID: 1591034398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +804,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      orc3_death_full_0: -1834722777
+      orc3_death_full_1: 1648850793
+      orc3_death_full_10: 1237710356
+      orc3_death_full_11: -982327614
+      orc3_death_full_12: -2067473247
+      orc3_death_full_13: 944116854
+      orc3_death_full_14: -1253711626
+      orc3_death_full_15: 756076037
+      orc3_death_full_16: 1648399332
+      orc3_death_full_17: 1185218749
+      orc3_death_full_18: 2077450318
+      orc3_death_full_19: 727904348
+      orc3_death_full_2: 704315728
+      orc3_death_full_20: 1232609490
+      orc3_death_full_21: -245296057
+      orc3_death_full_22: 486277182
+      orc3_death_full_23: 141070746
+      orc3_death_full_24: -201925493
+      orc3_death_full_25: -982967002
+      orc3_death_full_26: 860559516
+      orc3_death_full_27: -1455681219
+      orc3_death_full_28: 466701356
+      orc3_death_full_29: -2145624312
+      orc3_death_full_3: 903249
+      orc3_death_full_30: 169092014
+      orc3_death_full_31: 1591034398
+      orc3_death_full_4: -903862582
+      orc3_death_full_5: -1977254310
+      orc3_death_full_6: -1366560189
+      orc3_death_full_7: -45865152
+      orc3_death_full_8: 1547627850
+      orc3_death_full_9: 1020276651
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

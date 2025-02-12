@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,7 +121,511 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: orc3_hurt_full_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 210
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0da5ab91054a3b048ba9e9e6e5d62666
+      internalID: 2042612806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 210
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9830d5fdda508824f9a19454f6a5ff5c
+      internalID: 1537355732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 210
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba55e822a29773e4ebf0b53c4c00f844
+      internalID: 530387255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_3
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 210
+        width: 40
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 512e186392477704cb185009355cd77a
+      internalID: -1731612985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_4
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 210
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 455d7e0a1c1097048be9f46606cd32cd
+      internalID: 1321004101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_5
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 210
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adb93d2a5259e3b46b3867ac13724409
+      internalID: -1142092440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_6
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 146
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f31ae5aa4a1c97b4f9b3ea1e614946ef
+      internalID: -479076942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_7
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 146
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cba72281a8cc0664687bec623d7bd463
+      internalID: 1925180667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_8
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 146
+        width: 39
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30b585b85ea73cf49ad37113da09bb7d
+      internalID: 384976506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_9
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 146
+        width: 39
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2638f16f1512c0842bed7747d089d2e0
+      internalID: -1033317004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_10
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 146
+        width: 39
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41316c38130c50f4aa9157d0437d7b1b
+      internalID: -294989205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_11
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 146
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c028959233d9a74ea95f9671eaaa3b1
+      internalID: -1686774739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_12
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 82
+        width: 28
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 375ada4324f3f3647b2f469015361613
+      internalID: -660409409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_13
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 82
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b4e37b14b97d25489afcc11792d4902
+      internalID: -739928234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_14
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 82
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70103dff72408b04ea9b3024e6c35472
+      internalID: 958117780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_15
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 82
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46c58cf47e62202499dd347b8ba49cee
+      internalID: 1521424974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_16
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 82
+        width: 27
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12f8e5b6c4a43fc4c8537c3d84dd7468
+      internalID: -1346643291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_17
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 82
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 307adbc590c82c8489f7ab816b714d26
+      internalID: 705708096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_18
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 18
+        width: 26
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c117fd298179934e8df317544597e0a
+      internalID: 1259272451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_19
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 18
+        width: 25
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38d6c37b891886f489db017eb383f2ab
+      internalID: -1927527148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_20
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 18
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb9e574e646450e4891d6b6a7cdc5ac8
+      internalID: -1314961963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_21
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 18
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 117a9e4aa602c834ab7c834f5d3c87f9
+      internalID: 985956712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_22
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 18
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 656c44072e1b2784b8101ddc36b71201
+      internalID: 2103528888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc3_hurt_full_23
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 18
+        width: 24
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 857e680b5d3745644abecbe13353f69b
+      internalID: 887173050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +636,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      orc3_hurt_full_0: 2042612806
+      orc3_hurt_full_1: 1537355732
+      orc3_hurt_full_10: -294989205
+      orc3_hurt_full_11: -1686774739
+      orc3_hurt_full_12: -660409409
+      orc3_hurt_full_13: -739928234
+      orc3_hurt_full_14: 958117780
+      orc3_hurt_full_15: 1521424974
+      orc3_hurt_full_16: -1346643291
+      orc3_hurt_full_17: 705708096
+      orc3_hurt_full_18: 1259272451
+      orc3_hurt_full_19: -1927527148
+      orc3_hurt_full_2: 530387255
+      orc3_hurt_full_20: -1314961963
+      orc3_hurt_full_21: 985956712
+      orc3_hurt_full_22: 2103528888
+      orc3_hurt_full_23: 887173050
+      orc3_hurt_full_3: -1731612985
+      orc3_hurt_full_4: 1321004101
+      orc3_hurt_full_5: -1142092440
+      orc3_hurt_full_6: -479076942
+      orc3_hurt_full_7: 1925180667
+      orc3_hurt_full_8: 384976506
+      orc3_hurt_full_9: -1033317004
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
