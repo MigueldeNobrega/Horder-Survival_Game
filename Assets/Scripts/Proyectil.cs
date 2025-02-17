@@ -47,8 +47,13 @@ public class Proyectil : MonoBehaviour
     {
         if (other.isTrigger) return; // ?? Ignorar triggers (como el del ataque del zombie)
 
-        // ?? Si en el futuro el enemigo tiene un método de daño, lo puedes llamar aquí
-        Debug.Log("?? Impacto en el enemigo");
+        // Verifica si impactó contra un enemigo
+        Enemy enemigo = other.GetComponent<Enemy>();
+        if (enemigo != null)
+        {
+            Debug.Log("?? Impacto en el enemigo, aplicando daño.");
+            enemigo.TakeDamage(10); // Aplica daño (ajusta según sea necesario)
+        }
 
         // Desactivar el proyectil al colisionar con algo válido
         Deactivate();

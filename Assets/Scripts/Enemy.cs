@@ -1,115 +1,158 @@
 using System.Collections;
 using UnityEngine;
 
-public class Zombie : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-    public Transform playerToFollow;    // Referencia al jugador que seguirá el zombie
-    public float stopDistance = 0.1f;   // Distancia mínima a la que el zombie se detiene
-    public float speed = 10f;           // Velocidad de movimiento del zombie
-    public float damageAmount = 5f;     // Daño que inflige el zombie al jugador
-    public float attackInterval = 2f;   // Intervalo de tiempo entre ataques en segundos
-    private float lastAttackTime = 0f;  // Momento del último ataque
+    [Header("Configuración General")]
+    public Transform playerToFollow; // Referencia al jugador
+    public float stopDistance = 0.5f; // Distancia mínima antes de detenerse
+    public float speed = 2f; // Velocidad del enemigo
+    public float damageAmount = 10f; // Daño que inflige el enemigo
+    public float attackInterval = 1.5f; // Intervalo entre ataques (segundos)
+    public int maxHealth = 50; // Vida máxima del enemigo
+
+    private int currentHealth; // Vida actual
+    private float lastAttackTime = 0f; // Control del tiempo del último ataque
 
     private Animator animator;
-    private Rigidbody2D rb;             // Referencia al Rigidbody2D para el control físico
-    private CircleCollider2D attackCollider; // Collider para el área de daño del zombie
-
-    private PlayerMovement playerMovement; // Referencia al script del jugador para controlar la regeneración del escudo
+    private Rigidbody2D rb;
+    private Collider2D attackCollider; // Hitbox de ataque
 
     void Start()
     {
-        animator = GetComponent<Animator>();  // Obtiene el Animator
-        rb = GetComponent<Rigidbody2D>();     // Obtiene el Rigidbody2D
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth; // Iniciar con vida completa
 
         if (playerToFollow == null)
         {
-            // Si no se asignó el jugador en el Inspector, buscarlo con su tag
-            playerToFollow = GameObject.FindGameObjectWithTag("Player").transform;
+            playerToFollow = GameObject.FindGameObjectWithTag("Player")?.transform;
         }
 
-        // Añadir un Collider como trigger para detectar el daño
-        attackCollider = gameObject.AddComponent<CircleCollider2D>();
-        attackCollider.isTrigger = true;  // Configuramos como trigger (no colisiona físicamente)
-        attackCollider.radius = 1f;  // Tamaño del área de daño
-        attackCollider.offset = Vector2.zero;  // Ajustamos el centro del collider al zombie
-
-        // Obtener la referencia al script PlayerMovement del jugador
-        playerMovement = playerToFollow.GetComponent<PlayerMovement>();
+        // Buscar el hitbox de ataque en un GameObject hijo
+        attackCollider = transform.Find("Hitbox")?.GetComponent<Collider2D>();
+        if (attackCollider == null)
+        {
+            Debug.LogError($"? No se encontró el hitbox de ataque en {gameObject.name}");
+        }
+        else
+        {
+            attackCollider.enabled = false; // Se desactiva al inicio
+        }
     }
 
     void Update()
     {
-        if (playerToFollow != null)
+        if (currentHealth <= 0) return;  // Si está muerto, no hace nada
+        if (playerToFollow == null || currentHealth <= 0)
+            return; // Si el jugador no está o el enemigo está muerto, no hacer nada
+
+        // ?? Bloquea el movimiento y ataque si está en Hurt
+        if (animator.GetBool("isHurt"))
         {
-            // Obtiene la posición actual del zombie y la posición del jugador
-            Vector2 currentPosition = transform.position;
+            rb.velocity = Vector2.zero;
+            return;
+        }
 
-            // Siempre sigue al jugador, sin verificar el rango de visión
-            if (Vector2.Distance(currentPosition, playerToFollow.position) > stopDistance)
+        Vector2 currentPosition = transform.position;
+        float distanceToPlayer = Vector2.Distance(currentPosition, playerToFollow.position);
+
+        if (distanceToPlayer > stopDistance)
+        {
+            // Movimiento del enemigo
+            Vector2 newPosition = Vector2.MoveTowards(currentPosition, playerToFollow.position, speed * Time.deltaTime);
+            rb.MovePosition(newPosition);
+
+            // Dirección del movimiento
+            Vector2 moveDirection = newPosition - currentPosition;
+            moveDirection.Normalize();
+
+            // Actualizar animaciones
+            animator.SetFloat("Horizontal", moveDirection.x);
+            animator.SetFloat("Vertical", moveDirection.y);
+            animator.SetBool("IsMoving", moveDirection.magnitude > 0.01f);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
+
+            // Si está cerca y es momento de atacar
+            if (Time.time - lastAttackTime >= attackInterval)
             {
-                // Calcula la nueva posición a mover utilizando MoveTowards
-                Vector2 newPosition = Vector2.MoveTowards(currentPosition, playerToFollow.position, speed * Time.deltaTime);
-
-                // Mueve al zombie usando el Rigidbody2D para aplicar física correctamente
-                rb.MovePosition(newPosition);
-
-                // Calcula la dirección del movimiento
-                Vector2 moveDirection = newPosition - currentPosition;
-
-                // Normaliza la dirección para tener un valor consistente
-                moveDirection.Normalize();
-
-                // Actualiza los parámetros del Animator para las animaciones del movimiento
-                animator.SetFloat("Horizontal", moveDirection.x);
-                animator.SetFloat("Vertical", moveDirection.y);
-                animator.SetBool("IsMoving", moveDirection.magnitude > 0.01f);  // Activa la animación si el zombie se mueve
+                animator.SetTrigger("Attack");
+                lastAttackTime = Time.time;
             }
-            else
-            {
-                animator.SetBool("IsMoving", false);  // Detiene la animación de movimiento si está cerca del jugador
-            }
+        }
 
-            // Verificar si ha pasado el tiempo suficiente para realizar otro ataque
-            if (Vector2.Distance(transform.position, playerToFollow.position) <= attackCollider.radius)
-            {
-                // Si el jugador está dentro del rango de ataque, hacer el ataque si ha pasado el intervalo de tiempo
-                if (Time.time - lastAttackTime >= attackInterval)
-                {
-                    OnAttack();
-                    lastAttackTime = Time.time; // Actualiza el tiempo del último ataque
-                }
-            }
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            DesactivarHitbox();
         }
     }
 
-    // Método para realizar el ataque al jugador
-    private void OnAttack()
+    // Recibir daño
+    public void TakeDamage(int damage)
     {
-        // Usamos el Collider para verificar si el jugador está dentro del área de ataque del zombie
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackCollider.radius);
+        if (currentHealth <= 0) return; // Si ya está muerto, no hacer nada
 
-        foreach (Collider2D collider in colliders)
+        currentHealth -= damage;
+        animator.SetBool("isHurt", true);
+
+        // ?? Detener el movimiento mientras está en Hurt
+        rb.velocity = Vector2.zero;
+
+        if (currentHealth <= 0)
         {
-            if (collider.CompareTag("Player"))
-            {
-                // Si el zombie entra en contacto con el jugador, aplicar daño
-                PlayerMovement player = collider.GetComponent<PlayerMovement>();
-                if (player != null)
-                {
-                    player.RecibirDaño(damageAmount);  // Aplica el daño al jugador
-                    Debug.Log("Daño recibido por el jugador.");
-                }
-            }
+            Die();
         }
     }
 
-    // Método para dibujar el rango de ataque del zombie en la vista de escena (solo para depuración)
-    private void OnDrawGizmos()
+    // Método para la muerte del enemigo
+    private void Die()
+    {
+        animator.SetBool("isDeath", true);
+        rb.velocity = Vector2.zero; // Detener el movimiento
+                                    // Desactivar el Collider para que no reciba más colisiones
+        if (GetComponent<Collider2D>() != null)
+        {
+            GetComponent<Collider2D>().enabled = false;
+        }
+
+        // Desactivar el Rigidbody para que no lo mueva la física
+        if (rb != null)
+        {
+            rb.simulated = false;
+        }
+
+        // Desactivar la hitbox para que no pueda hacer daño
+        DesactivarHitbox();
+        this.enabled = false; // Desactivar el script
+    }
+
+    // Eventos de animación
+    public void ActivarHitbox()
     {
         if (attackCollider != null)
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, attackCollider.radius); // Dibuja el círculo del rango de ataque
+            attackCollider.enabled = true;
         }
+    }
+
+    public void DesactivarHitbox()
+    {
+        if (attackCollider != null)
+        {
+            attackCollider.enabled = false;
+        }
+    }
+
+    public void ResetHurt()
+    {
+        animator.SetBool("isHurt", false);
+    }
+
+    public void DestroyAfterDeath()
+    {
+        Destroy(gameObject);
     }
 }
