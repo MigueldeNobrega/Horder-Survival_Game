@@ -145,7 +145,7 @@ public class Enemy : MonoBehaviour
             attackCollider.enabled = false;
         }
     }
-
+    //HOLA
     public void ResetHurt()
     {
         animator.SetBool("isHurt", false);
