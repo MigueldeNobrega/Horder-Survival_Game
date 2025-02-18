@@ -16,7 +16,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private BarraDeVida barraDeVida;
     [SerializeField] private BarraDeEscudo barraDeEscudo;
     [SerializeField] private GameObject panelDeSangre;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
     private float vidaMaxima = 100f;
     private float escudoMaximo = 50f;
@@ -89,8 +92,6 @@ public class PlayerMovement : MonoBehaviour
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0f; // Asegurar que esté en 2D
             Vector2 direction = (mousePosition - transform.position).normalized;
-
-
 
             playerAnimator.SetFloat("Horizontal", direction.x);
             playerAnimator.SetFloat("Vertical", direction.y);
@@ -195,6 +196,24 @@ public class PlayerMovement : MonoBehaviour
         vidaActual -= cantidad;
         if (vidaActual < 0) vidaActual = 0;
         barraDeVida.CambiarVidaActual(vidaActual);
+
+        if (vidaActual <= 0)
+        {
+            Morir();
+        }
+    }
+
+    private void Morir()
+    {
+        // Aquí puedes agregar animaciones o efectos antes de destruir el GameObject
+        Destroy(gameObject);
+
+        // Mostrar la pantalla de Game Over
+        GameOverManager gameOverManager = GameObject.Find("Canvas").GetComponent<GameOverManager>();
+        if (gameOverManager != null)
+        {
+            gameOverManager.ShowGameOver();
+        }
     }
 
     // Método para curar vida

@@ -4,12 +4,25 @@ using UnityEngine;
 public class Zombie : MonoBehaviour
 {
     [SerializeField] private GameObject panelDeSangre;
+<<<<<<< Updated upstream
     public Transform playerToFollow;    // Referencia al jugador que seguirá el zombie
     public float stopDistance = 0.1f;   // Distancia mínima a la que el zombie se detiene
     public float speed = 10f;           // Velocidad de movimiento del zombie
     public float damageAmount = 5f;     // Daño que inflige el zombie al jugador
     public float attackInterval = 2f;   // Intervalo de tiempo entre ataques en segundos
     private float lastAttackTime = 0f;  // Momento del último ataque
+=======
+    [Header("Configuración General")]
+    public Transform playerToFollow; // Referencia al jugador
+    public float stopDistance = 0.5f; // Distancia mínima antes de detenerse
+    public float speed = 2f; // Velocidad del enemigo
+    public float damageAmount = 10f; // Daño que inflige el enemigo
+    public float attackInterval = 1.5f; // Intervalo entre ataques (segundos)
+    public int maxHealth = 50; // Vida máxima del enemigo
+
+    private int currentHealth; // Vida actual
+    private float lastAttackTime = 0f; // Control del tiempo del último ataque
+>>>>>>> Stashed changes
 
     private Animator animator;
     private Rigidbody2D rb;             // Referencia al Rigidbody2D para el control físico
@@ -48,6 +61,7 @@ public class Zombie : MonoBehaviour
             // Siempre sigue al jugador, sin verificar el rango de visión
             if (Vector2.Distance(currentPosition, playerToFollow.position) > stopDistance)
             {
+<<<<<<< Updated upstream
                 // Calcula la nueva posición a mover utilizando MoveTowards
                 Vector2 newPosition = Vector2.MoveTowards(currentPosition, playerToFollow.position, speed * Time.deltaTime);
 
@@ -79,6 +93,11 @@ public class Zombie : MonoBehaviour
                     OnAttack();
                     lastAttackTime = Time.time; // Actualiza el tiempo del último ataque
                 }
+=======
+                animator.SetTrigger("Attack");
+                lastAttackTime = Time.time;
+                panelDeSangre.SetActive(true);
+>>>>>>> Stashed changes
             }
         }
     }
