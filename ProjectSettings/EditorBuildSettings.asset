@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EscenaPruebaMovimientos.unity
     guid: 67572c99b24d2f742bddaba2371183e4
+  - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: a6bf95e37c5b02e4d91dce44cd9aa825
   m_configObjects: {}
