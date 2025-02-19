@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
 
     private int currentHealth; // Vida actual
     private float lastAttackTime = 0f; // Control del tiempo del último ataque
-
+    
     private Animator animator;
     private Rigidbody2D rb;
     private Collider2D attackCollider; // Hitbox de ataque

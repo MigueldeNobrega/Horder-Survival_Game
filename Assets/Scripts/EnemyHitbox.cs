@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHitbox : MonoBehaviour
 {
     public float damageAmount = 10f; // Daño que inflige el enemigo
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -15,6 +15,7 @@ public class EnemyHitbox : MonoBehaviour
             {
                 player.RecibirDaño(damageAmount);
                 Debug.Log($"?? {gameObject.name} golpeó al jugador.");
+                
             }
         }
     }

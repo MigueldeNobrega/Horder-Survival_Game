@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private float escudoMaximo = 50f;
     private float vidaActual;
     private float escudoActual;
-
+    [SerializeField] private GameObject panelDeSangre;
     public event EventHandler MuerteWizard;
 
     private float tiempoDeRegeneracion = 30f;  // Tiempo que debe pasar sin recibir daño para iniciar regeneración
@@ -196,6 +196,7 @@ public class PlayerMovement : MonoBehaviour
         vidaActual -= cantidad;
         if (vidaActual < 0) vidaActual = 0;
         barraDeVida.CambiarVidaActual(vidaActual);
+        panelDeSangre.SetActive(true);
 
         if (vidaActual <= 0)
         {
@@ -226,12 +227,14 @@ public class PlayerMovement : MonoBehaviour
         escudoActual += cantidad;
         if (escudoActual > escudoMaximo) escudoActual = escudoMaximo;
         barraDeEscudo.CambiarEscudoActual(escudoActual);
+        
     }
 
     // Coroutine para la regeneración del escudo
     private IEnumerator RegenerarEscudo()
     {
         regenerandoEscudo = true;
+        panelDeSangre.SetActive(false);
 
         while (escudoActual < escudoMaximo)
         {
