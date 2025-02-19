@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("enemy"), LayerMask.NameToLayer("enemy"), false);
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth; // Iniciar con vida completa
@@ -41,8 +42,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
+
         if (currentHealth <= 0) return;  // Si está muerto, no hace nada
         if (playerToFollow == null || currentHealth <= 0)
             return; // Si el jugador no está o el enemigo está muerto, no hacer nada
@@ -60,7 +62,7 @@ public class Enemy : MonoBehaviour
         if (distanceToPlayer > stopDistance)
         {
             // Movimiento del enemigo
-            Vector2 newPosition = Vector2.MoveTowards(currentPosition, playerToFollow.position, speed * Time.deltaTime);
+            Vector2 newPosition = Vector2.MoveTowards(currentPosition, playerToFollow.position, speed * Time.fixedDeltaTime);
             rb.MovePosition(newPosition);
 
             // Dirección del movimiento
