@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            Debug.LogError("⚠ No se encontró el GameObject 'ProyectilSpawn' con el script ProyectilPooling.");
+            Debug.LogError("No se encontró el GameObject 'ProyectilSpawn' con el script ProyectilPooling.");
         }
 
         vidaActual = vidaMaxima;
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
             playerAnimator.SetFloat("Horizontal", direction.x);
             playerAnimator.SetFloat("Vertical", direction.y);
 
-            // 🔥 Disparar proyectil
+            // Disparar proyectil
             Disparar(direction);
         }
 
@@ -141,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
         playerRb.MovePosition(playerRb.position + moveInput * speed * Time.fixedDeltaTime);
     }
 
-    // 🎯 MÉTODO PARA DISPARAR
+    // MÉTODO PARA DISPARAR
     private void Disparar(Vector2 direction)
     {
         GameObject proyectil = proyectilPool.GetProjectile();

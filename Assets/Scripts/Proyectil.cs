@@ -19,7 +19,7 @@ public class Proyectil : MonoBehaviour
         }
         else
         {
-            Debug.LogError("? No se encontró el GameObject 'ProyectilSpawn' con el script ProyectilPooling.");
+            Debug.LogError("No se encontró el GameObject 'ProyectilSpawn' con el script ProyectilPooling.");
         }
     }
 
@@ -45,13 +45,13 @@ public class Proyectil : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.isTrigger) return; // ?? Ignorar triggers (como el del ataque del zombie)
+        if (other.isTrigger) return; //  Ignorar triggers (como el del ataque del zombie)
 
         // Verifica si impactó contra un enemigo
         Enemy enemigo = other.GetComponent<Enemy>();
         if (enemigo != null)
         {
-            Debug.Log("?? Impacto en el enemigo, aplicando daño.");
+            Debug.Log(" Impacto en el enemigo, aplicando daño.");
             enemigo.TakeDamage(10); // Aplica daño (ajusta según sea necesario)
         }
 

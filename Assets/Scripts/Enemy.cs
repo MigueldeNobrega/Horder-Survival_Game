@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
         attackCollider = transform.Find("Hitbox")?.GetComponent<Collider2D>();
         if (attackCollider == null)
         {
-            Debug.LogError($"? No se encontró el hitbox de ataque en {gameObject.name}");
+            Debug.LogError($"No se encontró el hitbox de ataque en {gameObject.name}");
         }
         else
         {
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
         if (playerToFollow == null || currentHealth <= 0)
             return; // Si el jugador no está o el enemigo está muerto, no hacer nada
 
-        // ?? Bloquea el movimiento y ataque si está en Hurt
+        //  Bloquea el movimiento y ataque si está en Hurt
         if (animator.GetBool("isHurt"))
         {
             rb.velocity = Vector2.zero;
@@ -98,7 +98,7 @@ public class Enemy : MonoBehaviour
         currentHealth -= damage;
         animator.SetBool("isHurt", true);
 
-        // ?? Detener el movimiento mientras está en Hurt
+        //  Detener el movimiento mientras está en Hurt
         rb.velocity = Vector2.zero;
 
         if (currentHealth <= 0)
@@ -172,7 +172,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            Debug.LogError($"? No se puede resetear 'isHurt' porque 'animator' es NULL en {gameObject.name}");
+            Debug.LogError($" No se puede resetear 'isHurt' porque 'animator' es NULL en {gameObject.name}");
         }
     }
 
