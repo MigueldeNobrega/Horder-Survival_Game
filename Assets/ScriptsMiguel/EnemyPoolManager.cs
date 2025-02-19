@@ -19,7 +19,9 @@ public class EnemyPoolManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
         foreach (Pool pool in pools)
@@ -41,33 +43,38 @@ public class EnemyPoolManager : MonoBehaviour
     {
         if (!poolDictionary.ContainsKey(tag) || poolDictionary[tag].Count == 0)
         {
-            Debug.LogWarning("No hay un pool con el tag: " + tag);
-            Debug.LogWarning($"No hay enemigos disponibles en el pool para el tag: {tag}");
+            Debug.LogWarning($"No hay enemigos disponibles en el pool para el tag: {tag}. Se debería aumentar el tamaño del pool.");
             return null;
         }
 
         GameObject enemy = poolDictionary[tag].Dequeue();
-
         if (enemy == null)
         {
-            Debug.LogWarning("Pool vacío para el tag: " + tag);
+            Debug.LogWarning($"Intentando obtener un enemigo pero es null.");
             return null;
         }
 
         enemy.transform.position = spawnPosition;
         enemy.SetActive(true);
+        Debug.Log($"Enemigo generado en {spawnPosition}");
         return enemy;
     }
+
 
     public void ReturnEnemy(string tag, GameObject enemy)
     {
         if (!poolDictionary.ContainsKey(tag))
         {
-            Debug.LogWarning("Intentando devolver un objeto a un pool inexistente: " + tag);
+            Debug.LogWarning($"Intentando devolver un objeto a un pool inexistente: {tag}");
             return;
         }
 
-        enemy.SetActive(false);
-        poolDictionary[tag].Enqueue(enemy);
+        enemy.SetActive(false); //  Desactivar enemigo en vez de destruirlo
+        enemy.transform.position = Vector3.zero; // (Opcional) Resetear su posición
+        enemy.GetComponent<Rigidbody2D>().velocity = Vector2.zero; // (Opcional) Resetear velocidad
+
+        poolDictionary[tag].Enqueue(enemy); // Volver a agregarlo a la pool
     }
+
+
 }

@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public float speed = 2f; // Velocidad del enemigo
     public float damageAmount = 10f; // Daño que inflige el enemigo
     public float attackInterval = 1.5f; // Intervalo entre ataques (segundos)
-    public int maxHealth = 50; // Vida máxima del enemigo
+    public int maxHealth = 20; // Vida máxima del enemigo
 
     private int currentHealth; // Vida actual
     private float lastAttackTime = 0f; // Control del tiempo del último ataque
@@ -110,24 +110,39 @@ public class Enemy : MonoBehaviour
     // Método para la muerte del enemigo
     private void Die()
     {
+        if (RoundManager.Instance != null)
+        {
+            RoundManager.Instance.EnemyDied(); // Notificar que el enemigo murió
+        }
+
         animator.SetBool("isDeath", true);
-        rb.velocity = Vector2.zero; // Detener el movimiento
-                                    // Desactivar el Collider para que no reciba más colisiones
+        rb.velocity = Vector2.zero;
+
         if (GetComponent<Collider2D>() != null)
         {
             GetComponent<Collider2D>().enabled = false;
         }
 
-        // Desactivar el Rigidbody para que no lo mueva la física
         if (rb != null)
         {
             rb.simulated = false;
         }
 
-        // Desactivar la hitbox para que no pueda hacer daño
         DesactivarHitbox();
-        this.enabled = false; // Desactivar el script
+
+        //  Iniciar una corrutina para esperar la animación
+        StartCoroutine(DeactivateAfterDeath());
     }
+
+    private IEnumerator DeactivateAfterDeath()
+    {
+        //  Esperar hasta que termine la animación de muerte
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+        //  Devolver el enemigo al pool en lugar de destruirlo
+        EnemyPoolManager.Instance.ReturnEnemy(gameObject.tag, gameObject);
+    }
+
 
     // Eventos de animación
     public void ActivarHitbox()
@@ -145,10 +160,33 @@ public class Enemy : MonoBehaviour
             attackCollider.enabled = false;
         }
     }
+
+    // Agregamos el ResetHealth
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+
+        if (animator != null)
+        {
+            ResetHurt();
+        }
+        else
+        {
+            Debug.LogError($"? No se puede resetear 'isHurt' porque 'animator' es NULL en {gameObject.name}");
+        }
+    }
+
     //HOLA
     public void ResetHurt()
     {
-        animator.SetBool("isHurt", false);
+        if (animator != null)
+        {
+            animator.SetBool("isHurt", false);
+        }
+        else
+        {
+            Debug.LogError($"? Animator es NULL en {gameObject.name}. Asegúrate de que el objeto tiene un componente Animator.");
+        }
     }
 
     public void DestroyAfterDeath()

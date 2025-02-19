@@ -2,40 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpanwEnemy : MonoBehaviour
+public class SpawnerEnemy : MonoBehaviour
 {
-    [SerializeField] private string enemyTag; // Asigna en el Inspector el tag del enemigo a spawnnear
-    [SerializeField] private float minimumSpawnTime = 2f;
-    [SerializeField] private float maximumSpawnTime = 5f;
+    [SerializeField] private string enemyTag; // El tag del enemigo que se spawnea
 
-    private float timeUntilSpawn;
-
-    void Awake()
+    // Método para spawnar un enemigo
+    public void SpawnEnemy()
     {
-        SetTimeUntilSpawn();
-    }
-
-    void Update()
-    {
-        timeUntilSpawn -= Time.deltaTime;
-
-        if (timeUntilSpawn <= 0)
+        // Verificar que el EnemyPoolManager existe
+        if (EnemyPoolManager.Instance == null)
         {
-            if (EnemyPoolManager.Instance != null)
-            {
-                EnemyPoolManager.Instance.GetEnemy(enemyTag, transform.position);
-            }
-            else
-            {
-                Debug.LogError("EnemyPoolManager.Instance es NULL. Asegúrate de que está en la escena.");
-            }
-
-            SetTimeUntilSpawn();
+            Debug.LogError("? EnemyPoolManager.Instance es NULL.");
+            return;
         }
-    }
 
-    private void SetTimeUntilSpawn()
-    {
-        timeUntilSpawn = Random.Range(minimumSpawnTime, maximumSpawnTime);
+        // Intentamos obtener un enemigo del pool
+        GameObject enemy = EnemyPoolManager.Instance.GetEnemy(enemyTag, transform.position);
+
+        // Verificar que hemos recibido un enemigo del pool
+        if (enemy == null)
+        {
+            Debug.LogError($"? No se ha obtenido un enemigo del EnemyPoolManager con el tag {enemyTag}.");
+            return;
+        }
+
+        // Obtener el componente Enemy
+        Enemy enemyComponent = enemy.GetComponent<Enemy>();
+        if (enemyComponent == null)
+        {
+            Debug.LogError($"? El enemigo con tag {enemyTag} no tiene el componente 'Enemy'.");
+            return;
+        }
+
+        // Reseteamos la vida del enemigo para asegurar que comienza con su salud completa
+        enemyComponent.ResetHealth();
+
+        // Asegurarnos de que el enemigo sea activado si es necesario
+        enemy.SetActive(true);
+
+        // Restaurar físicas y colisiones en caso de que estuvieran desactivadas tras la muerte
+        Collider2D enemyCollider = enemy.GetComponent<Collider2D>();
+        if (enemyCollider != null) enemyCollider.enabled = true;
+
+        Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
+        if (rb != null) rb.simulated = true;
     }
 }

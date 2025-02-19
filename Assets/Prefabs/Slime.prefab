@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 5158603905628790075}
   m_Layer: 0
   m_Name: Slime
-  m_TagString: Untagged
+  m_TagString: Slime
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -287,7 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerToFollow: {fileID: 0}
   stopDistance: 1
-  speed: 7
+  speed: 3
   damageAmount: 10
   attackInterval: 1.5
-  maxHealth: 50
+  maxHealth: 30

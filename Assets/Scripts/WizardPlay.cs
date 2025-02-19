@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     private float escudoMaximo = 50f;
     private float vidaActual;
     private float escudoActual;
+
+    public event EventHandler MuerteWizard;
 
     private float tiempoDeRegeneracion = 30f;  // Tiempo que debe pasar sin recibir daño para iniciar regeneración
     private float velocidadRegeneracionEscudo = 2f; // Velocidad de regeneración del escudo por segundo
@@ -192,6 +196,14 @@ public class PlayerMovement : MonoBehaviour
         vidaActual -= cantidad;
         if (vidaActual < 0) vidaActual = 0;
         barraDeVida.CambiarVidaActual(vidaActual);
+
+        if (vidaActual <= 0)
+        {
+            Destroy(gameObject);
+            MuerteWizard?.Invoke(this, EventArgs.Empty);
+
+            Debug.Log("Muerto");
+        }
     }
 
     // Método para curar vida
@@ -200,7 +212,13 @@ public class PlayerMovement : MonoBehaviour
         vidaActual += cantidad;
         if (vidaActual > vidaMaxima) vidaActual = vidaMaxima;
         barraDeVida.CambiarVidaActual(vidaActual);
+
+      
     }
+
+    
+
+    
 
     // Método para regenerar escudo manual
     public void RegenerarEscudoManual(float cantidad)
