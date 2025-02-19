@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 4982126143506657004}
   - component: {fileID: 6569423094968746325}
   - component: {fileID: 5158603905628790075}
+  - component: {fileID: -524219568430549443}
   m_Layer: 3
   m_Name: BlueOrc
   m_TagString: OrcBlue
@@ -168,7 +169,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1715151171, guid: 48ad56a0ac046a6419c18fa41e8e1492, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -287,7 +288,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerToFollow: {fileID: 0}
   stopDistance: 0.5
-  speed: 3
+  speed: 2
   damageAmount: 10
   attackInterval: 1.5
   maxHealth: 50
+--- !u!114 &-524219568430549443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5286319808596927030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b82dd9ad1eea10f46bfcac337c4ee1a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  separationRadius: 0.3
+  separationForce: 0.1
