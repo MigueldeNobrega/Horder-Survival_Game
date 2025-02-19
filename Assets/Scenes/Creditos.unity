@@ -672,14 +672,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Horder survival
-
-    Juego hecho por: Alejandro Hu,
-
-    Miguel,Alfonso
-    y Shangjie Zhou
-
-'
+  m_text: "Horder survival\nJuego hecho por: \n\nAlejandro Hu,\nMiguel de N\xF3brega,\nAlfonso
+    Manrique Diaz,\nShangjie Zhou\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 797f0f31e7e6d2d4d81f9f544dc59cae, type: 2}
   m_sharedMaterial: {fileID: -3261859944388743850, guid: 797f0f31e7e6d2d4d81f9f544dc59cae, type: 2}
