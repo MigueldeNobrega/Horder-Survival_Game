@@ -90,6 +90,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
+
     // Recibir daño
     public void TakeDamage(int damage)
     {

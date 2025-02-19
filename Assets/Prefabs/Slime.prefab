@@ -65,7 +65,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.020919085, y: -0.021138549}
+  m_Offset: {x: 0.04435289, y: 0.005224347}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9203749, y: 0.8044765}
+  m_Size: {x: 1.2601655, y: 1.021239}
   m_EdgeRadius: 0
 --- !u!114 &18427659105060128
 MonoBehaviour:
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 4982126143506657004}
   - component: {fileID: 6569423094968746325}
   - component: {fileID: 5158603905628790075}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Slime
   m_TagString: Slime
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerToFollow: {fileID: 0}
   stopDistance: 1
-  speed: 3
+  speed: 2
   damageAmount: 10
   attackInterval: 1.5
   maxHealth: 30
