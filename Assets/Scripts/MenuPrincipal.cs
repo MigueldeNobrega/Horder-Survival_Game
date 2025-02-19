@@ -7,6 +7,6 @@ public class MenuPrincipal : MonoBehaviour
 {
    public void CargarEscenaJuego()
     {
-        SceneManager.LoadScene("EscenaPruebaMovimientos");
+        SceneManager.LoadScene("EscenaAlejandro");
     }
 }
