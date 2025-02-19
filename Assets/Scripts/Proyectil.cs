@@ -1,17 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Proyectil : MonoBehaviour
 {
     private Rigidbody2D rb;
     private ProyectilPooling pool;
+    private AudioSource audioSource; // Referencia al AudioSource
+    public AudioClip launchClip; // AudioClip para el lanzamiento
+    public AudioClip impactClip; // AudioClip para el impacto
     private float speed = 10f;
     private float lifeTime = 2f;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>(); // Obtener el AudioSource
         GameObject spawnObject = GameObject.Find("ProyectilSpawn"); // Busca el objeto por su nombre
         if (spawnObject != null)
         {
@@ -33,6 +35,11 @@ public class Proyectil : MonoBehaviour
             Physics2D.IgnoreCollision(myCollider, playerCollider, true);
         }
         rb.velocity = direction * speed;
+
+        // Reproducir el sonido de lanzamiento
+        audioSource.clip = launchClip;
+        audioSource.Play();
+
         Invoke(nameof(Deactivate), lifeTime);
     }
 
@@ -45,15 +52,19 @@ public class Proyectil : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.isTrigger) return; //  Ignorar triggers (como el del ataque del zombie)
+        if (other.isTrigger) return; // Ignorar triggers (como el del ataque del zombie)
 
         // Verifica si impactó contra un enemigo
         Enemy enemigo = other.GetComponent<Enemy>();
         if (enemigo != null)
         {
-            Debug.Log(" Impacto en el enemigo, aplicando daño.");
+            Debug.Log("Impacto en el enemigo, aplicando daño.");
             enemigo.TakeDamage(10); // Aplica daño (ajusta según sea necesario)
         }
+
+        // Reproducir el sonido de impacto
+        audioSource.clip = impactClip;
+        audioSource.Play();
 
         // Desactivar el proyectil al colisionar con algo válido
         Deactivate();

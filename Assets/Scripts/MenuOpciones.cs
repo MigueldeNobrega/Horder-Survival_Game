@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -19,7 +20,15 @@ public class MenuOpciones : MonoBehaviour
     {
         SceneManager.LoadScene("MenuPrincipal");
     }
- 
+    public void ExitGame()
+    {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false; // Detener el juego en el editor
+#else
+        Application.Quit(); // Salir del juego en una build
+#endif
+    }
+
     public void CambiarVolumen(float volumen)
     {
         audioMixer.SetFloat("volumen",volumen);
